@@ -1,3 +1,3 @@
-Get-ChildItem -Recurse | where {$_.PSIsContainer} | Where-Object {$_.Name -match '^(test[s]?|samples|doc[s]?|obj|typings)$'} | Remove-Item -Recurse
+Get-ChildItem -Recurse | where {$_.PSIsContainer} | Where-Object {$_.Name -match '^(test[s]?|samples|doc[s]?|obj|typings|example[s]?)$'} | Remove-Item -Recurse
 Get-ChildItem -Path node_modules -Recurse | where {!$_.PSIsContainer} | Where-Object {$_.Name -match '\.(coffee|md|png|jpg|pdb|travis\.yml|gitignore|npmignore|d\.ts)$'} | Remove-Item -Recurse
-Get-ChildItem -Path node_modules -Recurse | where {!$_.PSIsContainer} | Where-Object {$_.Name -match '\.*(test).*$'} | Remove-Item -Recurse
+Get-ChildItem -Path node_modules -Recurse | where {!$_.PSIsContainer} | Where-Object {$_.Name -match '\.*(test|LICENSE|example).*$'} | Remove-Item -Recurse
